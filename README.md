@@ -27,6 +27,41 @@ Proyecto Unity **Aura Gamer** con un menú principal en `SampleScene`: título, 
 3. Abre la escena `Assets/Scenes/SampleScene.unity`.
 4. Pulsa **Play** para probar el menú, los botones y los enlaces.
 
+
+---
+
+# Unidad 2 - Actividad 2.3: Programación de botones
+
+Se agregaron scripts para arrastrar un sprite, controlar fuentes y fijar la navegación en la escena `SampleScene`.
+
+## Criterios cumplidos
+
+1. **Arrastrar un sprite**  
+   Script `DragHandler.cs` asignado al objeto `Sprite_Arrastrable` (logo de AURA GAMER).  
+   Usa `IBeginDragHandler`, `IDragHandler`, `IEndDragHandler` con `RectTransformUtility.ScreenPointToLocalPointInRectangle` para seguir el mouse de forma fluida.
+
+2. **Controlar fuentes**  
+   Script `FontController.cs` asignado al objeto `FontController`.  
+   - Botón `Btn_AumentarFuente` (A+) → `FontController.AumentarFuente()`  
+   - Botón `Btn_DisminuirFuente` (A-) → `FontController.DisminuirFuente()`  
+   - Modifica el `fontSize` del objeto `Titulo` con límites mínimo 20 y máximo 150.
+
+3. **Fijar scripts a objetos y navegación funcional**  
+   - `MenuController.cs` → botones JUGAR, OPCIONES, SALIR  
+   - `WebLink.cs` → 3 enlaces web (Reddit Gaming, IGN, Twitch)  
+   - `DragHandler.cs` → sprite arrastrable  
+   - `FontController.cs` → control de fuente  
+
+## Cómo probar
+
+1. Abrir `Assets/Scenes/SampleScene.unity` en Unity 6.
+2. Pulsar **Play**.
+3. Arrastrar el logo de AURA GAMER con el mouse.
+4. Presionar **A+** para aumentar el tamaño del título.
+5. Presionar **A-** para disminuirlo.
+6. Probar los botones JUGAR, OPCIONES y SALIR.
+7. Hacer clic en los enlaces Reddit Gaming, IGN y Twitch.
+
 ## Repositorio
 
 https://github.com/Osvaldo8005/aura_game
