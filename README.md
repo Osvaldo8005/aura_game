@@ -62,6 +62,44 @@ Se agregaron scripts para arrastrar un sprite, controlar fuentes y fijar la nave
 6. Probar los botones JUGAR, OPCIONES y SALIR.
 7. Hacer clic en los enlaces Reddit Gaming, IGN y Twitch.
 
+
+---
+
+# Unidad 2 - Actividad 2.4: El bucle de juego y la animación
+
+Se agregaron 3 bucles de animación a la escena `SampleScene` para dar vida al entorno del juego.
+
+## Criterios cumplidos
+
+1. **Tres bucles de animación (mínimo 8 frames cada uno)**
+   - **Fuego de antorcha** (`Fuego_Anim`): 254 frames del spritesheet, ubicado al final de la espada del caballero rojo.
+   - **Portal mágico** (`Portal_Anim`): rotación continua de 360° en 60 frames, ubicado al final de la lanza del líder azul.
+   - **Carta girando** (`Carta_Anim`): rotación de 360° en 60 frames, ubicada en el cielo junto al cometa.
+
+2. **Elementos de fondo integrados**
+   - El fuego refuerza el elemento del caballero rojo (fuego).
+   - El portal refuerza el poder del líder azul (magia/misticismo).
+   - La carta refuerza la temática Yu-Gi-Oh del juego.
+
+3. **Visualización integrada**
+   - Todos los elementos se ven correctamente en Play Mode.
+   - No tapan botones, iconos ni enlaces.
+
+## Archivos nuevos
+
+- `Assets/fuego/` → Spritesheet del fuego + animación `Fuego_Anim`
+- `Assets/portal/` → Spritesheet del portal + animación `Portal_Anim`
+- `Assets/Cartas/` → Sprite de la carta + animación `Carta_Anim`
+
+## Cómo probar
+
+1. Abrir `Assets/Scenes/SampleScene.unity` en Unity 6.
+2. Pulsar **Play**.
+3. Verificar que el fuego, el portal y la carta están animados.
+4. Probar los botones JUGAR, OPCIONES y SALIR.
+
+
+
 ## Repositorio
 
 https://github.com/Osvaldo8005/aura_game
