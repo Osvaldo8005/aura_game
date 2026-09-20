@@ -100,6 +100,43 @@ Se agregaron 3 bucles de animación a la escena `SampleScene` para dar vida al e
 
 
 
+---
+
+# Unidad 2 - Actividad 2.5: Detección de colisiones
+
+Se agregó un sistema de detección de colisiones a la escena `SampleScene` para que el objeto arrastrable interactúe con una zona específica.
+
+## Criterios cumplidos
+
+1. **La colisión cambia el estado del objeto**
+   - Cuando el sprite arrastrable entra en la zona de colisión, la zona cambia de **rojo** a **verde**.
+   - Cuando sale, la zona vuelve a **rojo**.
+   - El cambio de estado se registra en la Consola de Unity.
+
+2. **La colisión está alineada con el sprite**
+   - La `Zona_Colision` está posicionada en el costado izquierdo del Canvas.
+   - El `Color_Zona` (Image hijo) muestra el área de colisión de forma visible.
+
+3. **Script de detección**
+   - `ColisionHandler.cs` calcula la distancia entre el sprite y la zona.
+   - Si la distancia es menor a `distanciaColision`, activa el cambio de color.
+   - Si la distancia es mayor, vuelve al estado normal.
+
+## Cómo probar
+
+1. Abrir `Assets/Scenes/SampleScene.unity` en Unity 6.
+2. Pulsar **Play**.
+3. Arrastrar el logo de AURA GAMER hacia la zona roja.
+4. Verificar que la zona cambia a verde al entrar.
+5. Verificar que vuelve a rojo al salir.
+6. Revisar la Consola para ver los mensajes de detección.
+
+## Archivos nuevos
+
+- `Assets/ColisionHandler.cs` → Script de detección de colisiones
+
+
+
 ## Repositorio
 
 https://github.com/Osvaldo8005/aura_game
