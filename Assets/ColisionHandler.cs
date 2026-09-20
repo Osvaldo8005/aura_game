@@ -15,12 +15,33 @@ public class ColisionHandler : MonoBehaviour
     [SerializeField] private Color colorActivo = new Color(0f, 1f, 0f, 0.9f);
 
     private bool dentroDeZona = false;
+    private AudioSource audioSource;
+    private AudioClip sonidoColision;
 
     private void Start()
     {
         if (imagenColor != null)
         {
             imagenColor.color = colorNormal;
+        }
+
+        // Cargar el sonido desde la carpeta Resources (nombre exacto)
+        sonidoColision = Resources.Load<AudioClip>("Magic 57-echo");
+
+        // Agregar AudioSource si no existe
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        if (sonidoColision == null)
+        {
+            Debug.LogError("No se pudo cargar el sonido desde Resources/Magic 57-echo");
+        }
+        else
+        {
+            Debug.Log("Sonido cargado correctamente: " + sonidoColision.name);
         }
     }
 
@@ -38,6 +59,12 @@ public class ColisionHandler : MonoBehaviour
             dentroDeZona = true;
             Debug.Log("¡Colisión detectada! El sprite entró en la zona.");
             imagenColor.color = colorActivo;
+
+            if (audioSource != null && sonidoColision != null)
+            {
+                audioSource.PlayOneShot(sonidoColision);
+                Debug.Log("Reproduciendo sonido: " + sonidoColision.name);
+            }
         }
         else if (distancia > distanciaColision && dentroDeZona)
         {

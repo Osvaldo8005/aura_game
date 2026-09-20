@@ -99,7 +99,6 @@ Se agregaron 3 bucles de animación a la escena `SampleScene` para dar vida al e
 4. Probar los botones JUGAR, OPCIONES y SALIR.
 
 
-
 ---
 
 # Unidad 2 - Actividad 2.5: Detección de colisiones
@@ -131,10 +130,40 @@ Se agregó un sistema de detección de colisiones a la escena `SampleScene` para
 5. Verificar que vuelve a rojo al salir.
 6. Revisar la Consola para ver los mensajes de detección.
 
+
+---
+
+# Unidad 2 - Actividad 2.6: El flujo de la interfaz
+
+Se agregó una animación de estado que se activa cuando el usuario interactúa con la zona de colisión, junto con un sonido de retroalimentación.
+
+## Criterios cumplidos
+
+1. **La animación de estados depende de un evento**
+   - Cuando el sprite arrastrable entra en la zona de colisión, se activa la animación de cambio de color (rojo → verde) y se reproduce un sonido.
+   - Cuando sale, la zona vuelve a rojo.
+
+2. **Al interactuar con el objeto se reproduce una animación**
+   - El evento de colisión dispara el cambio de color de la `Zona_Colision`.
+   - Se reproduce el AudioClip `Magic 57-echo` desde `Resources`.
+
+3. **Pruebas de resultados**
+   - Se verificó que la colisión funcione en Play Mode.
+   - Se verificó que el cambio de color y el sonido se reproduzcan correctamente.
+
+## Cómo probar
+
+1. Abrir `Assets/Scenes/SampleScene.unity` en Unity 6.
+2. Pulsar **Play**.
+3. Arrastrar el logo de AURA GAMER hacia la zona roja.
+4. Verificar que la zona cambia a verde y se escucha el sonido.
+5. Verificar que vuelve a rojo al salir.
+6. Revisar la Consola para ver los mensajes de detección.
+
 ## Archivos nuevos
 
-- `Assets/ColisionHandler.cs` → Script de detección de colisiones
-
+- `Assets/ColisionHandler.cs` → Script de detección de colisiones con sonido
+- `Assets/Resources/Magic 57-echo.flac` → Sonido de colisión
 
 
 ## Repositorio
