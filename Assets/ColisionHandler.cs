@@ -11,22 +11,28 @@ public class ColisionHandler : MonoBehaviour
     [SerializeField] private Image imagenColor;
 
     [Header("Colores")]
-    [SerializeField] private Color colorNormal = new Color(1f, 0f, 0f, 0.5f);
-    [SerializeField] private Color colorActivo = new Color(0f, 1f, 0f, 0.9f);
+    // Índigo místico (idle) → violeta luminoso (activo)
+    [SerializeField] private Color colorNormal = new Color(0.22f, 0.12f, 0.48f, 0.45f);
+    [SerializeField] private Color colorActivo = new Color(0.55f, 0.35f, 0.95f, 0.75f);
+    [SerializeField] private float velocidadTransicion = 6f;
+    [SerializeField] private float intensidadPulso = 0.12f;
 
     private bool dentroDeZona = false;
+    private Color colorObjetivo;
     private AudioSource audioSource;
     private AudioClip sonidoColision;
 
     private void Start()
     {
+        colorObjetivo = colorNormal;
+
         if (imagenColor != null)
         {
             imagenColor.color = colorNormal;
         }
 
         // Cargar el sonido desde la carpeta Resources (nombre exacto)
-        sonidoColision = Resources.Load<AudioClip>("Magic 57-echo");
+        sonidoColision = Resources.Load<AudioClip>("magic57-echo");
 
         // Agregar AudioSource si no existe
         audioSource = GetComponent<AudioSource>();
@@ -37,7 +43,7 @@ public class ColisionHandler : MonoBehaviour
 
         if (sonidoColision == null)
         {
-            Debug.LogError("No se pudo cargar el sonido desde Resources/Magic 57-echo");
+            Debug.LogError("No se pudo cargar el sonido desde Resources/magic57-echo");
         }
         else
         {
@@ -57,8 +63,8 @@ public class ColisionHandler : MonoBehaviour
         if (distancia <= distanciaColision && !dentroDeZona)
         {
             dentroDeZona = true;
+            colorObjetivo = colorActivo;
             Debug.Log("¡Colisión detectada! El sprite entró en la zona.");
-            imagenColor.color = colorActivo;
 
             if (audioSource != null && sonidoColision != null)
             {
@@ -69,8 +75,19 @@ public class ColisionHandler : MonoBehaviour
         else if (distancia > distanciaColision && dentroDeZona)
         {
             dentroDeZona = false;
+            colorObjetivo = colorNormal;
             Debug.Log("El sprite salió de la zona.");
-            imagenColor.color = colorNormal;
         }
+
+        Color destino = colorObjetivo;
+        if (dentroDeZona)
+        {
+            float pulso = 1f + Mathf.Sin(Time.time * 3.5f) * intensidadPulso;
+            destino.a = Mathf.Clamp01(colorActivo.a * pulso);
+            destino.r = Mathf.Clamp01(colorActivo.r + 0.08f * Mathf.Sin(Time.time * 2.2f));
+            destino.b = Mathf.Clamp01(colorActivo.b + 0.05f * Mathf.Cos(Time.time * 2.2f));
+        }
+
+        imagenColor.color = Color.Lerp(imagenColor.color, destino, Time.deltaTime * velocidadTransicion);
     }
 }

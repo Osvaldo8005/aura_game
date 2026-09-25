@@ -3238,8 +3238,10 @@ MonoBehaviour:
   imagenColor: {fileID: 1502082894}
   audioSource: {fileID: 1217538596}
   sonidoColision: {fileID: 8300000, guid: 6c2c1f387e038e84fadee8ebeaa9aa0b, type: 3}
-  colorNormal: {r: 1, g: 0, b: 0, a: 0.5}
-  colorActivo: {r: 0, g: 1, b: 0, a: 0.9}
+  colorNormal: {r: 0.22, g: 0.12, b: 0.48, a: 0.45}
+  colorActivo: {r: 0.55, g: 0.35, b: 0.95, a: 0.75}
+  velocidadTransicion: 6
+  intensidadPulso: 0.12
 --- !u!114 &1217538594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3253,7 +3255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 0.22, g: 0.12, b: 0.48, a: 0.45}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
